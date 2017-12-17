@@ -1,0 +1,27 @@
+{% extends 'tmw/base.html' %}
+{% load bootstrap3 %}
+{% load humanize %}
+
+{% block title %}Site Details - {{ site.name }}{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead>
+      <tr>
+        <td><strong>Date</strong></td>
+        <td><strong>A Value</strong></td>
+        <td><strong>B Value</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+  {% for value in site.value_set.all %}
+      <tr>
+        <td>{{ value.date }}</td>
+        <td>{{ value.a|floatformat:2 }}</td>
+        <td>{{ value.b|floatformat:2 }}</td>
+      </tr>
+  {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+

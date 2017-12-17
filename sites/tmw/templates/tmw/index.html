@@ -1,0 +1,17 @@
+{% extends 'tmw/base.html' %}
+{% load bootstrap3 %}
+
+{% block title %}Sites{% endblock %}
+
+{% block content %}
+  {% if sites %}
+    <ul class="list-group">
+    {% for site in sites %}
+      <li class="list-group-item"><a href="{% url 'detail' site.id %}">{{ site.name }}</a></li>
+    {% endfor %}
+    </table>
+  {% else %}
+    <p>No sites are available.</p>
+  {% endif %}
+{% endblock %}
+
